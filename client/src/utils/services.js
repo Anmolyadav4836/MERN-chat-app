@@ -1,7 +1,7 @@
 export const baseUrl = "http://localhost:8080/api" ;//server url where we send request to server from client 
 
 export const postRequest = async(url, body) => {//posting request to server from client 
-    console.log("body", body);
+    // console.log("body", body);
     const response = await fetch(url,{//fetching data from server 
         method:"POST",
         headers:{ "Content-Type": "application/json" }, //sending data in json format 

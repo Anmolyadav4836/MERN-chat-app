@@ -1,3 +1,4 @@
+import React from "react";
 import { createContext, useCallback, useEffect, useState } from "react";
 import { getRequest, postRequest, baseUrl } from "../utils/services";
 import { io } from "socket.io-client";
@@ -22,7 +23,7 @@ export const ChatContextProvider = ({children, user}) => {
     //const [newMessage,setNewMessage] = useState(null);
     //console.log("currentChat",currentChat);
     //console.log("Messages",messages);
-    console.log("Notifications",notifications);
+    // console.log("Notifications",notifications);
     
     // initializing socket
     useEffect(()=>{

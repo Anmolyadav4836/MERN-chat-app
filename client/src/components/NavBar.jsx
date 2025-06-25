@@ -1,34 +1,58 @@
-import { useContext } from "react";
-import { Container, Nav, Navbar, Stack } from "react-bootstrap";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import Notification from "./chat/Notification";
-const NavBar = () => {
-    const {user, logoutUser} = useContext(AuthContext);
-    return (
-        <Navbar bg="dark" className="mb-4" style={{height:"3.75rem",borderRadius:"0.5rem 0.5rem 0.5rem 0.5rem"}}>
-            <Container>
-                <h2>
-                    <Link to="/" className="link-light text-decoration-none">ChatApp</Link>
-                </h2>
-                {user&&<span className="text-warning">Logged in as {user?.name}</span>}
-                <Nav>
-                    <Stack direction="horizontal" gap={3}>
-                        {user && (<>
-                            <Notification/>
-                            <Link onClick={()=> logoutUser()} to="/login" className="link-light text-decoration-none" style={{cursor:"pointer",padding:"0.5rem 0.5rem 0.5rem 0.5rem",borderRadius:"0.5rem 0.5rem 0.5rem 0.5rem",border:"1px solid rgb(100, 100, 100)",backgroundColor:"rgb(100,100,100)",color:"white"}}>Logout</Link>
-                        </>)}
-                        {!user && (<>
-                            <Link to="/login" className="link-light text-decoration-none">Login</Link>
-                            <Link to="/register" className="link-light text-decoration-none">Register</Link>
-                        </>)} 
-                    </Stack>
-                </Nav>
-            </Container>
-        </Navbar>
-    ) ;
-};
- 
-export default NavBar;
+import { Button } from "./Button";
 
-//
+
+const NavBar = () => {
+  const { user, logoutUser } = useContext(AuthContext);
+
+  return (
+    <nav className="bg-gray-900 text-white mb-4 h-15 rounded-md px-6 py-3 flex items-center justify-between border-b-2">
+      <h2 className="text-xl font-semibold">
+        <Link to="/" className="text-white no-underline hover:text-yellow-300">
+          ChatApp
+        </Link>
+      </h2>
+
+      {user && (
+        <span className="text-yellow-400 text-sm font-medium">
+          Logged in as {user?.name}
+        </span>
+      )}
+
+      <div className="flex items-center gap-4">
+        {user ? (
+          <>
+            <Notification />
+            <Link
+              onClick={() => logoutUser()}
+              to="/login"
+              
+            >
+             <Button title="Logout"/>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="text-white hover:text-yellow-300 text-sm transition duration-200"
+            >
+             <Button title="Login"/>
+            </Link>
+            <Link
+              to="/register"
+              className="text-white hover:text-yellow-300 text-sm transition duration-200"
+            >
+             <Button title="Register"/>
+            </Link>
+          </>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default NavBar;
