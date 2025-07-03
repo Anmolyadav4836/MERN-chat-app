@@ -50,7 +50,7 @@ const Notification = () => {
 
             {/* Notification dropdown box */}
             {isOpen && (
-                <div className="absolute top-8 right-0 w-72 bg-white shadow-lg rounded-lg z-50 border border-gray-300">
+                <div className="absolute top-8 right-0 w-72 bg-gray-500 shadow-lg rounded-lg z-50 border border-gray-300">
                     {/* Header */}
                     <div className="flex justify-between items-center px-4 py-2 border-b">
                         <h3 className="text-md font-semibold">Notifications</h3>
@@ -64,7 +64,7 @@ const Notification = () => {
 
                     {/* No Notifications */}
                     {modifiedNotifications?.length === 0 && (
-                        <div className="flex items-center justify-center p-4 text-gray-500">
+                        <div className="flex items-center justify-center p-4 text-black">
                             No Notifications
                         </div>
                     )}
@@ -80,12 +80,12 @@ const Notification = () => {
                                 }}
                                 className={`px-4 py-2 cursor-pointer text-sm ${
                                     n.isRead
-                                        ? "hover:bg-gray-100"
-                                        : "bg-blue-50 hover:bg-blue-100 font-medium"
+                                        ? "hover:bg-gray-500"
+                                        : "bg-gray-400  font-medium"
                                 }`}
                             >
                                 <p>{`${n.senderName} sent you a new message`}</p>
-                                <p className="text-xs text-gray-500 mt-1">
+                                <p className="text-xs text-black mt-1">
                                     {moment(n.date).calendar(null, {
                                         sameDay: 'dddd DD/MM/YYYY h:mm a',
                                         nextDay: 'dddd DD/MM/YYYY h:mm a',

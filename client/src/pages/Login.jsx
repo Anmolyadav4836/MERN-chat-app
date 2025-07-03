@@ -52,8 +52,25 @@ const Login = () => {
               <p>{loginError.message}</p>
             </div>
           )}
+
+          <div className="flex  gap-4 items-center justify-center bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">
+            Dummy login data
+            <div>
+               User-1
+              <p>Email: user5@gmail.com</p>
+              <p>Password: User5@12345</p>
+            </div>
+            
+            <div>
+              User-2
+              <p>Email: user@gmail.com</p>
+              <p>Password: User@1234</p>
+            </div>
+            
+          </div>
         </div>
       </div>
+      
     </form>
   );
 };
