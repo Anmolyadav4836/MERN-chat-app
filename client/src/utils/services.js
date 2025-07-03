@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:8080/api" ;//server url where we send request to server from client 
+export const baseUrl = import.meta.env.VITE_API_BASE_URL ;//server url where we send request to server from client 
 
 export const postRequest = async(url, body) => {//posting request to server from client 
     // console.log("body", body);
